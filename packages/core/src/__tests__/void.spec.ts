@@ -300,6 +300,7 @@ test('child field reactions', () => {
       ],
     })
   )
+
   const field2 = attach(
     form.createField({
       name: 'field2',
