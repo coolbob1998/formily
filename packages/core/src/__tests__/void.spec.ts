@@ -313,6 +313,7 @@ test('child field reactions', () => {
     })
   )
   expect(field1.value).toBeUndefined()
+
   expect(field2.value).toBeUndefined()
   const field3 = attach(
     form.createField({
