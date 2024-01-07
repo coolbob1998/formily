@@ -897,13 +897,14 @@ export const batchValidate = async (
   })
   await Promise.all(tasks)
   if (isForm(target)) target.setValidating(false)
-  if (target.invalid) {
+  const errors = target.queryFeedbacks({ type: 'error', address: pattern })
+  if (errors.length) {
     notify(
       target,
       LifeCycleTypes.ON_FORM_VALIDATE_FAILED,
       LifeCycleTypes.ON_FIELD_VALIDATE_FAILED
     )
-    throw target.errors
+    throw errors
   }
   notify(
     target,
